@@ -65,6 +65,7 @@ void setup() {
   int coinCount = 0;
   int distMetalDetectToIntake;
   int distIntakeToIRMatrix;
+  Color colorOfSquare;
 }
 
 void loop() {
@@ -73,7 +74,7 @@ void loop() {
   drivetrain.searchForward();
 
   drivetrain.turnToAngle(90);
-  drivetrain.followLineUntilCoin();
+  drivetrain.followLineUntilCoin();                         //need to modify method because robot will drive through gray square where there is no line
   if(intake.coinDetected())
   {
     drivetrain.drive(distMetalDetectToIntake, 0);
@@ -147,4 +148,22 @@ void loop() {
   }
 
   //drive till reach color and drive to all colors and go back to white square
+
+  colorOfSquare = drivetrain.drive(1.5, 0);                                 //1.5' is distance from last coin to center of color square
+  intake.dropOffSequence(colorSensor.getColor());
+
+  drivetrain.drive(3.5, 90);                                               //3.5' is distance between centers of color squares
+  intake.dropOffSequence(colorSensor.getColor());
+
+  for(int i = 0; i < 3; i++)                                             //go finish off the colors on the other 3 sides of the board (don't go back to first color)
+  {
+    drivetrain.drive(3.5, 90);
+    intake.dropOffSequence(colorSensor.getColor());
+
+    drivetrain.drive(3.5, 0);
+    intake.dropOffSequence(colorSensor.getColor());
+  }
+
+  drivetrain.drive(3.5, 180);                                            //end up back in white square
+  
 }

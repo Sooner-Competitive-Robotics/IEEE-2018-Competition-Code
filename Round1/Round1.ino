@@ -27,6 +27,7 @@
 
 void setup() {
   // put your setup code here, to run once:
+  //Drivetrain
   Motor leftMot = new Motor();
   Motor rightMot = new Motor();
   Encoder leftEnc = new Encoder();
@@ -35,6 +36,7 @@ void setup() {
   DigitalDevice mDetector = new DigitalDevice();
   IRMatrix matrix = new IRMatrix(pinIRMatrix1, pinIRMatrix2, pinIRMatrix3, pinIRMatrix4, pinIRMatrix5);
   
+  //Drivetrain
   leftMot.begin(pinLeftMot1, pinLeftMot2, 1);
   rightMot.begin(pinRightMot1, pinRightMot2, 1);
   leftEnc.begin(pinLeftEnc1, pinLeftEnc2, 1);
@@ -43,16 +45,18 @@ void setup() {
   mDetector.initialize(pinMetDet);
   matrix.begin(pinIRMatrix1, pinIRMatrix2, pinIRMatrix3, pinIRMatrix4, pinIRMatrix5);
   
-  Drivetrain drivetrain = new Drivetrain();
+  //Drivetrain
+  Drivetrain drivetrain;
   drivetrain.begin(leftMot, rightMot, leftEnc, rightEnc, gyro, matrix, mDetector);
   
-  Encoder tEncoder = new Encoder();
+  Encoder tEncoder;
   
-  DigitalDevice lSwitch = new DigitalDevice();
-  Electromagnet eMagnet = new Electromagnet();
-  Servo tServo = new Servo();                                    //remember to instantiate winch servo
-  Turntable turntable = new Turntable();
-  ColorSensor colorSensor = new ColorSensor();
+  //Intake
+  DigitalDevice lSwitch;
+  Electromagnet eMagnet;
+  Servo tServo;                                    //remember to instantiate winch servo
+  Turntable turntable;
+  ColorSensor colorSensor;
 
   tEncoder.begin(pinIntakeEncoder1, pinIntakeEncoder2);
   eMagnet.initialize(pinElecMag); 
@@ -60,8 +64,18 @@ void setup() {
   lSwitch.initialize(pinLimSwitch);
   turntable.begin(tServo);
   
+  //Intake
   Intake intake = new Intake(tEncoder, mDetector, lSwitch, eMagnet, turntable, colorSensor, colorServoPin);
 
+  //Colors
+  Color blue("blue");
+  Color green("green");
+  Color red("red");
+  Color cyan("cyan");
+  Color magenta("magenta");
+  Color yellow("yellow");
+  Color gray("gray");
+  
   int coinCount = 0;
   int distMetalDetectToIntake;
   int distIntakeToIRMatrix;
@@ -149,7 +163,7 @@ void loop() {
 
   //drive till reach color and drive to all colors and go back to white square
 
-  colorOfSquare = drivetrain.drive(1.5, 0);                                 //1.5' is distance from last coin to center of color square
+  drivetrain.drive(1.5, 0);                                 //1.5' is distance from last coin to center of color square
   intake.dropOffSequence(colorSensor.getColor());
 
   drivetrain.drive(3.5, 90);                                               //3.5' is distance between centers of color squares

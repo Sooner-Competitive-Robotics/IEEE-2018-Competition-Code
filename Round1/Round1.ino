@@ -95,10 +95,10 @@ void loop() {
     intake.pickUpSequenceA();
     coinCount++;
   }
-  drivetrain.drive(distIntakeToMatrix, 0);
-  drivetrain.turnToAngle(-135);
+  drivetrain.drive(distIntakeToMatrix, 0);					//on bottom right 6' sq
+  drivetrain.turnToAngle(-135);								//turn onto diagonal (from top left to bottom right)
   
-  while(coinCount != 4)
+  while(coinCount != 4)										//follow diagonal and pick up coins
   {
     drivetrain.followLineUntilCoin();
     if(intake.coinDetected())
@@ -107,11 +107,11 @@ void loop() {
       intake.pickUpSequenceA();
       coinCount++;
     }  
-  }
+  }															//end on top left 6' sq
   drivetrain.drive(distIntakeToMatrix, 0);
-  drivetrain.turnToAngle(-135);
+  drivetrain.turnToAngle(-135);								//turn to face down on left side 6' sq
 
-  while(coinCount != 6)
+  while(coinCount != 6)										//follow left side 6' sq down 
   {
     drivetrain.followLineUntilCoin();
     if(intake.coinDetected())
@@ -120,11 +120,11 @@ void loop() {
       intake.pickUpSequenceA();
       coinCount++;
     }  
-  }
+  }															//ends on bottom left 6' corner
   drivetrain.drive(distIntakeToMatrix, 0);
-  drivetrain.turnToAngle(-135);
+  drivetrain.turnToAngle(-135);								//turn to diagonal (from bottom left to top right)
 
-  while(coinCount != 9)
+  while(coinCount != 9)										//follow diagonal and pick up coins
   {
     drivetrain.followLineUntilCoin();
     if(intake.coinDetected())
@@ -133,11 +133,11 @@ void loop() {
       intake.pickUpSequenceA();
       coinCount++;
     }  
-  }
+  }															//ends on top right 6' corner
   drivetrain.drive(distIntakeToMatrix, 0);
-  drivetrain.turnToAngle(135);
+  drivetrain.turnToAngle(135);								//turn to face down on right side 6' sq
 
-  while(coinCount != 10)
+  while(coinCount != 10)									//follow right side 6' sq down
   {
     drivetrain.followLineUntilCoin();
     if(intake.coinDetected())
@@ -146,11 +146,11 @@ void loop() {
       intake.pickUpSequenceA();
       coinCount++;
     }  
-  }
+  }															//ends on middle right 6' sq
   drivetrain.drive(distIntakeToMatrix, 0);
-  drivetrain.turnToAngle(90);
+  drivetrain.turnToAngle(90);								//turn to face left on middle of right side 6' sq
 
-  while(coinCount != 12)
+  while(coinCount != 12)									//follow the middle line to the left
   {
     drivetrain.followLineUntilCoin();
     if(intake.coinDetected())
@@ -159,25 +159,33 @@ void loop() {
       intake.pickUpSequenceA();
       coinCount++;
     }  
-  }
+  }															//ends on middle 
 
   //drive till reach color and drive to all colors and go back to white square
 
-  drivetrain.drive(1.5, 0);                                 //1.5' is distance from last coin to center of color square
-  intake.dropOffSequence(colorSensor.getColor());
+  drivetrain.drive(30, 0);                                 //2.5' is distance from last coin to center of color square, DRIVING to GREEN SQUARE
+  intake.dropOffSequence(green);		
 
-  drivetrain.drive(3.5, 90);                                               //3.5' is distance between centers of color squares
-  intake.dropOffSequence(colorSensor.getColor());
+  drivetrain.turnToAngle(90);
+  drivetrain.drive(42, 0);                                               //3.5' is distance between centers of color squares, DRVING to RED
+  intake.dropOffSequence(red);
 
-  for(int i = 0; i < 3; i++)                                             //go finish off the colors on the other 3 sides of the board (don't go back to first color)
-  {
-    drivetrain.drive(3.5, 90);
-    intake.dropOffSequence(colorSensor.getColor());
-
-    drivetrain.drive(3.5, 0);
-    intake.dropOffSequence(colorSensor.getColor());
-  }
-
-  drivetrain.drive(3.5, 180);                                            //end up back in white square
+  drivetrain.turnToAngle(90);
+  drivetrain.drive(84, 0);                                               //7' is distance between centers of color squares (skipping WHITE), DRVING to CYAN
+  intake.dropOffSequence(cyan);
+  
+  drivetrain.turnToAngle(90);
+  drivetrain.drive(42, 0);                                               //3.5' is distance between centers of color squares, DRVING to PURPLE
+  intake.dropOffSequence(purple);
+  
+  drivetrain.drive(42, 0);                                               //3.5' is distance between centers of color squares, DRVING to YELLOW
+  intake.dropOffSequence(yellow);
+  
+  drivetrain.turnToAngle(90);
+  drivetrain.drive(84, 0);                                               //7' is distance between centers of color squares (skipping WHITE), DRVING to BLUE
+  intake.dropOffSequence(blue);
+  
+  drivetrain.turnToAngle(180);
+  drivetrain.drive(42, 0);                                               //3.5' is distance between centers of color squares, RETURN to WHITE SQUARE
   
 }

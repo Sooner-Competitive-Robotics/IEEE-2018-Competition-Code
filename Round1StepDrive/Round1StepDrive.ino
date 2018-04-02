@@ -9,62 +9,78 @@ void setup()
 void loop()
 {
   // put your main code here, to run repeatedly:
-  stepDrive.step(stepDrive.convertInchesToSteps(18), stepDrive.convertInchesToSteps(18));
+  drivetrain.step(drivetrain.convertInchesToSteps(18*DIST_RATIO), drivetrain.convertInchesToSteps(18*DIST_RATIO));
+  delay(MOVE_DELAY);
+
+  drivetrain.setRPM(20);
   //turn 90
-  //stepDrive.step();
-  stepDrive.step(stepDrive.convertInchesToSteps(24), stepDrive.convertInchesToSteps(24));
-  sitStillPickUp();
-  coinCount++;
-  //turn -135
-  //stepDrive.step();
-  
-  stepDrive.step(stepDrive.convertInchesToSteps(17), stepDrive.convertInchesToSteps(17));
-  sitStillPickUp();  
-  
-  stepDrive.step(stepDrive.convertInchesToSteps(34), stepDrive.convertInchesToSteps(34));
-  sitStillPickUp(); 
+  drivetrain.step(drivetrain.convertInchesToSteps(NINETY_DEG), drivetrain.convertInchesToSteps(-NINETY_DEG));
+  delay(MOVE_DELAY);
 
-  stepDrive.step(stepDrive.convertInchesToSteps(17), stepDrive.convertInchesToSteps(17));
-  sitStillPickUp();  
-  
-  //turn -135
-  //stepDrive.step(); 
+  drivetrain.setRPM(30);
+  drivetrain.step(drivetrain.convertInchesToSteps(24*DIST_RATIO), drivetrain.convertInchesToSteps(24*DIST_RATIO));
+  //sitStillPickUp();
+  delay(MOVE_DELAY);
 
-  stepDrive.step(stepDrive.convertInchesToSteps(24), stepDrive.convertInchesToSteps(24));
-  sitStillPickUp();  
+  drivetrain.setRPM(20);
+  //turn -135
+  drivetrain.step(drivetrain.convertInchesToSteps(-ONE_THIRTY_FIVE_DEG), drivetrain.convertInchesToSteps(ONE_THIRTY_FIVE_DEG));
+  delay(MOVE_DELAY);
+
+  drivetrain.setRPM(30);
+  drivetrain.step(drivetrain.convertInchesToSteps(17*DIST_RATIO), drivetrain.convertInchesToSteps(17*DIST_RATIO));
+  //sitStillPickUp(); 
+  delay(MOVE_DELAY);
+  
+  drivetrain.step(drivetrain.convertInchesToSteps(34*DIST_RATIO), drivetrain.convertInchesToSteps(34*DIST_RATIO));
+  //sitStillPickUp(); 
+  delay(MOVE_DELAY);
+
+  drivetrain.step(drivetrain.convertInchesToSteps(17*DIST_RATIO), drivetrain.convertInchesToSteps(17*DIST_RATIO));
+  //sitStillPickUp();  
+  delay(MOVE_DELAY);
+
+  drivetrain.setRPM(20);
+  //turn -135
+  drivetrain.step(drivetrain.convertInchesToSteps(-ONE_THIRTY_FIVE_DEG), drivetrain.convertInchesToSteps(ONE_THIRTY_FIVE_DEG)); 
+  delay(MOVE_DELAY);
+
+  while(true){}; 
+  drivetrain.step(drivetrain.convertInchesToSteps(24*DIST_RATIO), drivetrain.convertInchesToSteps(24*DIST_RATIO));
+  //sitStillPickUp();  
   
   //turn -90
-  //stepDrive.step();
+  drivetrain.step(drivetrain.convertInchesToSteps(-NINETY_DEG), drivetrain.convertInchesToSteps(NINETY_DEG));
 
-  stepDrive.step(stepDrive.convertInchesToSteps(12), stepDrive.convertInchesToSteps(12));
-  sitStillPickUp();  
+  drivetrain.step(drivetrain.convertInchesToSteps(12*DIST_RATIO), drivetrain.convertInchesToSteps(12*DIST_RATIO));
+  //sitStillPickUp();  
 
-  stepDrive.step(stepDrive.convertInchesToSteps(24), stepDrive.convertInchesToSteps(24));
-  sitStillPickUp();  
+  drivetrain.step(drivetrain.convertInchesToSteps(24*DIST_RATIO), drivetrain.convertInchesToSteps(24*DIST_RATIO));
+  //sitStillPickUp();  
   
-  stepDrive.step(stepDrive.convertInchesToSteps(12), stepDrive.convertInchesToSteps(12));
-  sitStillPickUp();
+  drivetrain.step(drivetrain.convertInchesToSteps(12*DIST_RATIO), drivetrain.convertInchesToSteps(12*DIST_RATIO));
+  //sitStillPickUp();
   
   //turn -90
-  //stepDrive.step();
+  drivetrain.step(drivetrain.convertInchesToSteps(-NINETY_DEG), drivetrain.convertInchesToSteps(NINETY_DEG));
 
-  stepDrive.step(stepDrive.convertInchesToSteps(24), stepDrive.convertInchesToSteps(24));
-  sitStillPickUp();  
+  drivetrain.step(drivetrain.convertInchesToSteps(24*DIST_RATIO), drivetrain.convertInchesToSteps(24*DIST_RATIO));
+  //sitStillPickUp();  
 
   //turn -135
-  //stepDrive.step();
+  drivetrain.step(drivetrain.convertInchesToSteps(-ONE_THIRTY_FIVE_DEG), drivetrain.convertInchesToSteps(ONE_THIRTY_FIVE_DEG));
 
-  stepDrive.step(stepDrive.convertInchesToSteps(17), stepDrive.convertInchesToSteps(17));
-  sitStillPickUp();
+  drivetrain.step(drivetrain.convertInchesToSteps(17*DIST_RATIO), drivetrain.convertInchesToSteps(17*DIST_RATIO));
+  //sitStillPickUp();
 
-  stepDrive.step(stepDrive.convertInchesToSteps(34), stepDrive.convertInchesToSteps(34));
-  sitStillPickUp();
+  drivetrain.step(drivetrain.convertInchesToSteps(34*DIST_RATIO), drivetrain.convertInchesToSteps(34*DIST_RATIO));
+  //sitStillPickUp();
 
-  stepDrive.step(stepDrive.convertInchesToSteps(17), stepDrive.convertInchesToSteps(17));
-  sitStillPickUp();
+  drivetrain.step(drivetrain.convertInchesToSteps(17*DIST_RATIO), drivetrain.convertInchesToSteps(17*DIST_RATIO));
+  //sitStillPickUp();
 
   //reach cyan/blue square
-  stepDrive.step(stepDrive.convertInchesToSteps(25.5), stepDrive.convertInchesToSteps(25.5));
-
+  //drivetrain.step(stepDrive.convertInchesToSteps(25.5), stepDrive.convertInchesToSteps(25.5));
+  
   //TODO: implement dropoffsequence
 }

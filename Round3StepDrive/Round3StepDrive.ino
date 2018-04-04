@@ -150,7 +150,7 @@ void loop()
 	drivetrain.setRPM(DRIVE_RPM);
 	drivetrain.step(drivetrain.convertInchesToSteps(-11*DIST_RATIO), drivetrain.convertInchesToSteps(-11*DIST_RATIO));	
 	delay(MOVE_DELAY);  
-	
+  
 	drivetrain.setRPM(TURN_RPM);
 	drivetrain.step(drivetrain.convertInchesToSteps(-ONE_THIRTY_FIVE_DEG), drivetrain.convertInchesToSteps(ONE_THIRTY_FIVE_DEG));
 	delay(MOVE_DELAY);    
@@ -171,7 +171,7 @@ void loop()
 	drivetrain.step(drivetrain.convertInchesToSteps(-ONE_THIRTY_FIVE_DEG), drivetrain.convertInchesToSteps(ONE_THIRTY_FIVE_DEG));
 	delay(MOVE_DELAY);  
 	  
-	drivetrain.setRPM(DRIVE_RPM);
+	drivetrain.setRPM(DRIVE_RPM);  
 	drivetrain.step(drivetrain.convertInchesToSteps(-108*DIST_RATIO), drivetrain.convertInchesToSteps(-108*DIST_RATIO));
 	delay(MOVE_DELAY);  
 

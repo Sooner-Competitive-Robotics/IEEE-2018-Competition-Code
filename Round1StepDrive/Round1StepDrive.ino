@@ -340,11 +340,7 @@ void loop()
 	/////////////////////////////////
   
 	drivetrain.setRPM(DRIVE_RPM);
-//<<<<<<< HEAD
-	drivetrain.step(drivetrain.convertInchesToSteps(-36), drivetrain.convertInchesToSteps(-36));	
-//=======
 	drivetrain.step(drivetrain.convertInchesToSteps(-42), drivetrain.convertInchesToSteps(-42));	
-//>>>>>>> c7a7fedcb5b1daeb8fad86bcd9e7eda4d7512eaf
 	commandTransition();
   
 	drivetrain.setRPM(DRIVE_RPM);

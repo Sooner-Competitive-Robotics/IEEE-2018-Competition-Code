@@ -115,7 +115,7 @@ void loop()
 	commandTransition();    
 	
 	drivetrain.setRPM(DRIVE_RPM);
-	drivetrain.step(drivetrain.convertInchesToSteps(-36*DIST_RATIO), drivetrain.convertInchesToSteps(-40*DIST_RATIO));	
+	drivetrain.step(drivetrain.convertInchesToSteps(-36*DIST_RATIO), drivetrain.convertInchesToSteps(-36*DIST_RATIO));	
 	commandTransition();
   
 	drivetrain.setRPM(DRIVE_RPM);
@@ -139,7 +139,7 @@ void loop()
 	commandTransition();
   
 	drivetrain.setRPM(DRIVE_RPM);
-	drivetrain.step(drivetrain.convertInchesToSteps(-36*DIST_RATIO), drivetrain.convertInchesToSteps(-42*DIST_RATIO));	
+	drivetrain.step(drivetrain.convertInchesToSteps(-36*DIST_RATIO), drivetrain.convertInchesToSteps(-36*DIST_RATIO));	
 	commandTransition();
   
 	drivetrain.setRPM(DRIVE_RPM);

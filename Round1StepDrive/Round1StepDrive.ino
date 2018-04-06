@@ -70,7 +70,7 @@ void loop()
 	//
 	/////////////////////////////////
   drivetrain.setRPM(DRIVE_RPM);
-  drivetrain.step(drivetrain.convertInchesToSteps(4), drivetrain.convertInchesToSteps(4));
+  drivetrain.step(drivetrain.convertInchesToSteps(CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(CENTER_TO_INTAKE));
   delay(PICK_DELAY);
   
 	drivetrain.setRPM(DRIVE_RPM);
@@ -82,7 +82,7 @@ void loop()
 	delay(PICK_DELAY);
 
 	drivetrain.setRPM(DRIVE_RPM);
-	drivetrain.step(drivetrain.convertInchesToSteps(17 - 4), drivetrain.convertInchesToSteps(17 - 4));	  
+	drivetrain.step(drivetrain.convertInchesToSteps(17 - CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(17 - CENTER_TO_INTAKE));	  
 	commandTransition();
 
 	/////////////////////////////////
@@ -109,11 +109,11 @@ void loop()
 	/////////////////////////////////
 
   drivetrain.setRPM(DRIVE_RPM);
-  drivetrain.step(drivetrain.convertInchesToSteps(4), drivetrain.convertInchesToSteps(4));    
+  drivetrain.step(drivetrain.convertInchesToSteps(CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(CENTER_TO_INTAKE));    
   delay(PICK_DELAY);
   
 	drivetrain.setRPM(DRIVE_RPM);
-	drivetrain.step(drivetrain.convertInchesToSteps(24 - 4), drivetrain.convertInchesToSteps(24 - 4));	  
+	drivetrain.step(drivetrain.convertInchesToSteps(24 - CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(24 - CENTER_TO_INTAKE));	  
 	commandTransition();
 	
 	/////////////////////////////////
@@ -141,7 +141,7 @@ void loop()
 	/////////////////////////////////
 
   drivetrain.setRPM(DRIVE_RPM);
-  drivetrain.step(drivetrain.convertInchesToSteps(4), drivetrain.convertInchesToSteps(4));    
+  drivetrain.step(drivetrain.convertInchesToSteps(CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(CENTER_TO_INTAKE));    
   delay(PICK_DELAY);
   
 	drivetrain.setRPM(DRIVE_RPM);
@@ -153,7 +153,7 @@ void loop()
 	delay(PICK_DELAY);
   
 	drivetrain.setRPM(DRIVE_RPM);
-	drivetrain.step(drivetrain.convertInchesToSteps(12 - 4), drivetrain.convertInchesToSteps(12 - 4));	
+	drivetrain.step(drivetrain.convertInchesToSteps(12 - CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(12 - CENTER_TO_INTAKE));	
 	commandTransition();
    
 	/////////////////////////////////
@@ -183,13 +183,13 @@ void loop()
 	//
 	/////////////////////////////////
 
-  drivetrain.setRPM(DRIVE_RPM);
-  drivetrain.step(drivetrain.convertInchesToSteps(4), drivetrain.convertInchesToSteps(4));
+   drivetrain.setRPM(DRIVE_RPM);
+  drivetrain.step(drivetrain.convertInchesToSteps(CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(CENTER_TO_INTAKE));    
   delay(PICK_DELAY);
   
-	drivetrain.setRPM(DRIVE_RPM);
-	drivetrain.step(drivetrain.convertInchesToSteps(24 - 4), drivetrain.convertInchesToSteps(24 - 4));
-	commandTransition();
+  drivetrain.setRPM(DRIVE_RPM);
+  drivetrain.step(drivetrain.convertInchesToSteps(24 - CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(24 - CENTER_TO_INTAKE));    
+  commandTransition();
   
 	/////////////////////////////////
 	//
@@ -215,7 +215,7 @@ void loop()
 	/////////////////////////////////
 
   drivetrain.setRPM(DRIVE_RPM);
-  drivetrain.step(drivetrain.convertInchesToSteps(4), drivetrain.convertInchesToSteps(4));  
+  drivetrain.step(drivetrain.convertInchesToSteps(CENTER_TO_INTAKE), drivetrain.convertInchesToSteps(CENTER_TO_INTAKE));  
   delay(PICK_DELAY);
   
 	drivetrain.setRPM(DRIVE_RPM);
